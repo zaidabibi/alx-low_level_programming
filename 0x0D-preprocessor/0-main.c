@@ -1,17 +1,10 @@
-#include "0-object_like_macro.h"
-#include "0-object_like_macro.h"
+#ifndef MAIN_H
+#define MAIN_H
+
 #include <stdio.h>
+#include "0-object_like_macro.h"
+#include "1-pi.h"
+#include "3-function_like_macro.h"
+#include "4-sum.h"
 
-/**
- * main - check the code.
- *
- * Return: Always 0.
- */
-int main(void)
-{
-    int s;
-
-    s = 98 + SIZE;
-    printf("%d\n", s);
-    return (0);
-}
+#endif 
