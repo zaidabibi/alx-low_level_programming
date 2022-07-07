@@ -1,36 +1,25 @@
+#ifndef HEADER_FILE
+#define HEADER_FILE
 #include <stdio.h>
-#include "function_pointers.h"
+#include <stdlib.h>
 /**
- * int_index - function that searches
- * for an integer
+ * struct op - Struct op
  *
- * @array: array with parameters
- * @size: size of the array
- * @cmp: function to call function
- *
- * Return: returns the index of the first element
- * for which the cmp function does not return 0
+ * @op: The operator
+ * @f: The function associated
  */
-int int_index(int *array, int size, int (*cmp)(int))
+typedef struct op
 {
-	int i;
+	char *op;
+	int (*f)(int a, int b);
+} op_t;
 
-	if (array == NULL || cmp == NULL)
-	{
-		return (-1);
-	}
+int (*get_op_func(char *s))(int, int);
 
-	if (size <= 0)
-	{
-		return (-1);
-	}
+int op_add(int a, int b);
+int op_sub(int a, int b);
+int op_mul(int a, int b);
+int op_div(int a, int b);
+int op_mod(int a, int b);
 
-	for (i = 0; i < size; i++)
-	{
-		if ((*cmp)(array[i]) == 1)
-		{
-			return (i);
-		}
-	}
-	return (-1);
-}
+#endif
